@@ -57,7 +57,7 @@ function LangSwitch({ lang, setLang }: { lang: Lang; setLang: (l: Lang)=>void })
   );
 }
 
-function Hero({ t }: { t: typeof dict['tr'] }) {
+function Hero({ t }: { t: typeof dict[keyof typeof dict] }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
